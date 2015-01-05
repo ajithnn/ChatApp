@@ -3,16 +3,13 @@
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
-<<<<<<< HEAD
     "express": "^4.10.7",
     "nodemon": "^1.2.1",
     "socket.io": "~1.1.0"
   },
   "devDependencies": {
     "path": "^0.4.9"
-=======
     "nodemon": "^1.2.1",
     "socket.io": "~1.1.0"
->>>>>>> 02826a333b042093c143405263625163729afd46
   }
 }

@@ -1,18 +1,11 @@
 var app = require('express')();
 var http = require('http').Server(app);
-<<<<<<< HEAD
 var path = require('path');
-=======
->>>>>>> 02826a333b042093c143405263625163729afd46
 var io = require('socket.io')(http,{pingInterval:5000,pingTimeout:10000});
 var userdata = []; 
 
 app.get('/', function(req, res){
-<<<<<<< HEAD
   res.sendFile(path.join(__dirname,'index.html'));
-=======
-  res.sendFile('/Users/z085331/chatExample/index.html');
->>>>>>> 02826a333b042093c143405263625163729afd46
 });
 
 io.on('connection', function(socket){
