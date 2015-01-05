@@ -32,7 +32,7 @@
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     var usrname ="";
-  var socket = io('http://10.92.249.110:3000',{timeout : 10000});
+  var socket = io('http://localhost:3000',{timeout : 10000});
   $('form').submit(function(){
     socket.emit('chat message', usrname + ": " +$('#m').val());
     $('#messages').append($('<li>').text("You" + ": " +$('#m').val()));
