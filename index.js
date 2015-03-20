@@ -2,10 +2,7 @@ var express = require('express');
 var app = express();
 var http = require('http').Server(app);
 var path = require('path');
-var io = require('socket.io')(http, {
-    pingInterval: 5000,
-    pingTimeout: 10000
-});
+var io = require('socket.io')(http);
 var userdata = [];
 
 app.use('/static',express.static(__dirname + '/client'));
