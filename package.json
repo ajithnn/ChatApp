@@ -1,5 +1,5 @@
 {
-  "name": "socket-chat-example",
+  "name": "socket-Angchat",
   "version": "0.0.1",
   "description": "my first socket.io app",
   "dependencies": {
@@ -8,7 +8,7 @@
     "socket.io": "~1.1.0"
   },
   "devDependencies": {
-    "path": "^0.4.9"
+    "path": "^0.4.9",
     "nodemon": "^1.2.1",
     "socket.io": "~1.1.0"
   }
