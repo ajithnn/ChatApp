@@ -1,0 +1,52 @@
+<html ng-app="chatApp">
+
+<head>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; minimum-scale=1.0; user-scalable=0;" /> <meta>
+    <title>Chat App</title>
+    <link rel="stylesheet" type="text/css" href="/static/assets/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <script src="/static/assets/angular/angular.js" type="text/javascript"></script>
+    <script src="/static/assets/angular/angular-route.js" type="text/javascript"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/static/mainApp.js" type="text/javascript"></script>
+    <script src="/static/client.js" type="text/javascript"></script>
+    <script src="/static/main.js" type="text/javascript"></script>
+</head>
+
+<body ng-view>
+    <div id="contain" class="container-fluid">
+        <div id="header" class="row">
+            <div class="col-md-10 col-sm-10 col-xs-12">
+                <p id="menu">Menu</p>
+                <p id="heading">Chat Application</p>
+            </div>
+            <div class="col-md-2 col-sm-2"></div>
+        </div>
+        <div id="body" class="row">
+            <div id="messages" class="col-md-10 col-sm-10 col-xs-12">
+
+            </div>
+            <div class="menu col-md-2 col-sm-2">
+                <ul>
+                    <li>Ajith</li>
+                    <li>Ajith</li>
+                    <li>Ajith</li>
+                    <li>Ajith</li>
+                    <li>Ajith</li>
+                </ul>
+            </div>
+        </div>
+        <div id="input" class="row">
+            <div class="col-md-11 col-sm-10 col-xs-10">
+                    <input id="chatbox" type="text" ng-keypress="triggerMessage($event)" />
+            </div>
+            <div class="col-md-1 col-sm-2 col-xs-2">
+                <!--<p id="send">Send</p>-->
+                <img id="sendbutton" src="/static/assets/images/right.png" ng-click="triggerMsg()" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
