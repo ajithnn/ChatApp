@@ -6,28 +6,27 @@ chat.controller('chatboxController', ['$scope',
                 $('#messages').append($('<li>').text(msg));
             });
             socket.on('User Disconnected', function (m, list) {
-                $("#usr").append($('<li>').text(m));
-                $("#btm").empty();
-                $("#btm").append($('<li>').text("Users Online"));
-                for (var i = 0; i < list.length; i++) {
-                    $("#btm").append($('<li>').text(list[i].user));
+                $(".menu ul").empty();
+                for (i = 0; i < list.length; i++) {
+                    $(".menu ul").append($('<li id="' + list[i].user + '">').text(list[i].user));
+                }
+                $(".showmenu ul").empty();
+                for (i = 0; i < list.length; i++) {
+                    $(".showmenu ul").append($('<li id="' + list[i].user + '">').text(list[i].user));
+                }                
+            });
+            socket.on('New User', function (m, list) {
+                $(".menu ul").empty();
+                for (i = 0; i < list.length; i++) {
+                    $(".menu ul").append($('<li id="' + list[i].user + '">').text(list[i].user));
+                }
+                $(".showmenu ul").empty();
+                for (i = 0; i < list.length; i++) {
+                    $(".showmenu ul").append($('<li id="' + list[i].user + '">').text(list[i].user));
                 }
             });
-            /*socket.on('New User', function (m, list) {
-            $("#usr").append($('<li>').text(m + " Joined"));
-            $("#btm").empty();
-            $("#btm").append($('<li>').text("Users Online"));
-            for (var i = 0; i < list.length; i++) {
-                $("#btm").append($('<li>').text(list[i].user));
-            }
-        });*/
             socket.on('reconnect', function () {
-                alert("Connected");
                 socket.emit('User Joined', $("#nm").val());
-                $("#btm").empty();
-                $("#btm").append($('<li>').text("Users Online"));
-                $("#btm").append($('<li>').text(usrname));
-                $("#nick").hide();
             });
         }
 
@@ -39,11 +38,16 @@ chat.controller('chatboxController', ['$scope',
         $scope.triggerMsg = function () {
             EmitMessage();
         }
+        $scope.showUsers = function () {
+            $(".showmenu").toggle();
+        }
+
         function EmitMessage() {
             socket.emit('chat message', usrname + ": " + $('#chatbox').val());
-            $('#messages').append($('<li>').text("You" + ": " + $('#chatbox').val()));
+            $('#messages').append($('<li id="mine">').text("You" + ": " + $('#chatbox').val()));
             $('#chatbox').val('');
             $('#chatbox').focus();
+            $('#messages').scrollTop($("#messages").prop("scrollHeight"));
         }
         $scope.SocketActions();
 }]);
