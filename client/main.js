@@ -4,6 +4,7 @@ chat.controller('chatboxController', ['$scope',
         $scope.SocketActions = function () {
             socket.on('chat message', function (msg) {
                 $('#messages').append($('<li>').text(msg));
+                $('#messages').scrollTop($("#messages").prop("scrollHeight"));
             });
             socket.on('User Disconnected', function (m, list) {
                 $(".menu ul").empty();
