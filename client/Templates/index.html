@@ -4,14 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0" /> <meta>
     <title>Chat App</title>
     <link rel="stylesheet" type="text/css" href="/static/assets/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/static/index.css">
+    <link rel="stylesheet" type="text/css" href="/static/assets/css/index.css">
     <script src="/static/assets/angular/angular.js" type="text/javascript"></script>
     <script src="/static/assets/angular/angular-route.js" type="text/javascript"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="/static/mainApp.js" type="text/javascript"></script>
-    <script src="/static/client.js" type="text/javascript"></script>
-    <script src="/static/main.js" type="text/javascript"></script>
+    <script src="/static/Controllers/client.js" type="text/javascript"></script>
+    <script src="/static/Controllers/main.js" type="text/javascript"></script>
+    <script src="/static/directives/scrollDirective.js" type="text/javascript"></script>
+    <script src="/static/directives/focusDirective.js" type="text/javascript"></script>
+    <script src="/static/directives/audioDirective.js" type="text/javascript"></script>
+    <script src="/static/services/SocketService.js" type="text/javascript"></script>
 </head>
 
 <body ng-view>
@@ -24,22 +28,25 @@
             <div class="col-md-2 col-sm-2"></div>
         </div>
         <div id="body" class="row">
-            <div id="messages" class="col-md-10 col-sm-10 col-xs-12">
-
+            <div id="messages" class="col-md-10 col-sm-10 col-xs-12" scroll-Bottom>
+                <li ng-repeat="msg in Messages" id="{{msg.id}}">{{msg.msg}}</li>
             </div>
             <div class="menu col-md-2 col-sm-2">  
                 <p style="padding-top:10px;">Users Online</p>
-                <ul>                    
+                <ul>   
+                    <li ng-repeat="msg in Online" id="{{msg.id}}">{{msg.msg}}</li>
                 </ul>
             </div>
-            <div class="showmenu col-md-2 col-sm-2">  
-                <ul>                    
+            <div class="showmenu col-md-2 col-sm-2" ng-show="showMobileMenu">  
+                <ul>
+                    <li ng-repeat="msg in Online" id="{{msg.id}}">{{msg.msg}}</li>
                 </ul>
             </div>
         </div>
+        <audio id="audiotag1" src="/static/assets/audio/ping.mp3" preload="auto" play-Audio="{{Playaudio}}"></audio>
         <div id="input" class="row">
             <div class="col-md-11 col-sm-10 col-xs-10">
-                    <input id="chatbox" type="text" ng-keypress="triggerMessage($event)" />
+                    <input id="chatbox" type="text" ng-keypress="triggerMessage($event)" ng-model="MessageData" focus-Box />
             </div>
             <div class="col-md-1 col-sm-2 col-xs-2">
                 <!--<p id="send">Send</p>-->

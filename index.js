@@ -9,7 +9,7 @@ app.use('/static',express.static(__dirname + '/client'));
 
 
 app.get('*',function(req,res){
-    res.sendFile(__dirname + '/client/index.html')
+    res.sendFile(__dirname + '/client/Templates/index.html')
 })
 
 io.on('connection', function (socket) {

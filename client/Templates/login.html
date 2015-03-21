@@ -11,9 +11,9 @@
 
         </div>
         <div class="col-md-2 col-sm-2 col-xs-4">
-            <form id="loginForm">
+            <form id="loginForm" ng-submit="login()">
                 <label for="name">Name:</label>
-                <input id="name" type="text" />
+                <input id="name" type="text" ng-model="username" />
                 <input id="loginb" type="submit" value="Login" />
             </form>
         </div>
