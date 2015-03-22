@@ -1,5 +1,3 @@
-var socket;
-var usrname= "";
 var chat = angular.module('chatApp', ['ngRoute'])
 
 .config(function ($routeProvider, $locationProvider) {

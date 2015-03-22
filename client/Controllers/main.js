@@ -5,7 +5,8 @@ chat.controller('chatboxController', ['$scope','$timeout','socketService',
         $scope.showMobileMenu = false;
         $scope.Playaudio = '';
         sockserv.setupSocketEvents();
-
+        var usrname = sockserv.usrname;
+        
         $scope.$on('chat msg', function (event,msg) {
             $scope.Messages.push({
                 id: "recv",
