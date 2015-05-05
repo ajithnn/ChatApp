@@ -5,6 +5,11 @@ chat.controller('chatboxController', ['$scope','$timeout','socketService',
         $scope.showMobileMenu = false;
         $scope.Playaudio = '';
         sockserv.setupSocketEvents();
+        $scope.emojiMessage={
+            replyToUser : function(){
+                $timeout(function(){$scope.triggerMsg()},20);
+            }
+        };
         var usrname = sockserv.usrname;
         
         $scope.$on('chat msg', function (event,msg) {
@@ -29,7 +34,6 @@ chat.controller('chatboxController', ['$scope','$timeout','socketService',
         });
         
         $scope.$on('Nw Usr', function (event,list) {
-            console.log(list);
             $scope.Online = [];
             for (i = 0; i < list.length; i++) {
                 $scope.Online.push({
@@ -53,10 +57,10 @@ chat.controller('chatboxController', ['$scope','$timeout','socketService',
         }
 
         function EmitMessage() {
-            sockserv.EmitSocketEvents('chat message', usrname + ": " + $scope.MessageData);
+            sockserv.EmitSocketEvents('chat message', usrname + ": " + $scope.emojiMessage.rawhtml);
             $scope.Messages.push({
                 id: "mine",
-                msg: "You" + ": " + $scope.MessageData
+                msg: "You" + ": " + $scope.emojiMessage.rawhtml
             });
             $scope.MessageData = '';
         }

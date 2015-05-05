@@ -1,0 +1,36 @@
+<div id="contain" class="container-fluid">
+    <div id="header" class="row">
+        <div class="col-md-10 col-sm-10 col-xs-12">
+            <p id="menu" ng-click="showUsers()">Online</p>
+            <p id="heading">Chat Application</p>
+        </div>
+        <div class="col-md-2 col-sm-2"></div>
+    </div>
+    <div id="body" class="row">
+        <div id="messages" class="col-md-10 col-sm-10 col-xs-12" scroll-Bottom>
+            <li ng-repeat="msg in Messages" id="{{msg.id}}" ng-bind-html="msg.msg"></li>
+        </div>
+        <div class="menu col-md-2 col-sm-2">
+            <p style="padding-top:10px;">Users Online</p>
+            <ul>
+                <li ng-repeat="msg in Online" id="{{msg.id}}">{{msg.msg}}</li>
+            </ul>
+        </div>
+        <div class="showmenu col-md-2 col-sm-2" ng-show="showMobileMenu">
+            <ul>
+                <li ng-repeat="msg in Online" id="{{msg.id}}" ng-bind-html="msg.msg"></li>
+            </ul>
+        </div>
+    </div>
+<audio id="audiotag1" src="/static/assets/audio/ping.mp3" preload="auto" play-Audio="{{Playaudio}}"></audio>
+<div id="input" class="row">
+    <div emoji-form emoji-message="emojiMessage" class="smiley">
+        <textarea id="messageInput" ng-model="MessageData" placeholder="Enter Message"></textarea>
+        <button id="emojibtn">
+        <i class="icon icon-emoji"></i>
+        </button>
+    </div>
+    <!--<input id="chatbox" type="text" ng-keypress="triggerMessage($event)" ng-model="MessageData" focus-Box />-->
+        <img id="sendbutton" src="/static/assets/images/right.png" ng-click="triggerMsg()" />
+</div>
+</div>

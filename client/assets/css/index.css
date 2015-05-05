@@ -1,11 +1,13 @@
 
 #contain {
 
-    position: fixed;
+    position: relative;
 
     top: 0%;
 
     bottom: 100%;
+
+    min-height: 600px;
 
 }
 
@@ -159,15 +161,14 @@
 
     bottom: 3px;
 
-    left: 0;
-
-    right: 5px;
+    right: 0;
 
     position: fixed;
 
     height: 45px;
 
     background-color: #FCFBD0;
+    width: 70px;
 
 }
 
@@ -183,29 +184,23 @@
 
 }
 
-#input div:nth-child(2) {
-
-    bottom: 5px;
-
-    right: 0;
-
-    position: fixed;
-
-    height: 45px;
-
-    background-color: #FCFBD0;
-
-}
-
 #sendbutton {
 
     padding-top: 10px;
 
     padding-left: 10px;
 
-    height: 40px;
+    height: 45px;
 
-    width: 40px;
+    width: 45px;
+
+    position: fixed;
+
+    background-color: #FCFBD0;
+
+    bottom: 3px;
+
+    right: 70px;
 
 }
 
@@ -291,4 +286,36 @@ input[type="submit"] {
     
     color:white;
 
+}
+#messageDiv{
+    position:fixed;
+    bottom:0;
+    left: 1px;
+    width:90%;
+    margin-bottom:0 !Important;
+}
+
+@media (max-width: 768px) {
+        #messageDiv{
+    position:fixed;
+    bottom:0;
+    left: 1px;
+    width:70%;
+    margin-bottom:0 !Important;
+}
+    }
+
+@media (min-width: 1244px) {
+        #messageDiv{
+    position:fixed;
+    bottom:0;
+    left: 1px;
+    width:94%;
+    margin-bottom:0 !Important;
+}
+    }
+
+#emojibtn{
+    right: 20%;
+    margin:10px;
 }
