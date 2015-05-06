@@ -334,7 +334,6 @@
 
 	var EmojiArea_WYSIWYG = function($textarea, options) {
 		var self = this;
-
 		this.options = options || {};
 		this.$textarea = $textarea;
 		this.$editor = $('<div>').addClass('emoji-wysiwyg-editor');
@@ -721,7 +720,6 @@
 		 * to add scrollbars to EmojiMenu
 		 */
 		var updateItems = function() {
-			
 			self.$items.html(html.join(''));
 			
 			  if (!Config.Mobile) { setTimeout(function () {
@@ -792,6 +790,7 @@
 		 * MODIFICATION: Following line was modified by Igor Zhukov, in order to
 		 * improve EmojiMenu behaviour
 		 */
+		 $('.emoji-wysiwyg-editor').trigger('focus');
 		if (this.emojiarea && this.emojiarea === emojiarea)
 			return this.hide();
 		emojiarea.$button.addClass('on');

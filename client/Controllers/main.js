@@ -9,12 +9,12 @@ chat.controller('chatboxController', ['$scope', '$timeout', 'socketService',
             replyToUser: function() {
                 $timeout(function() {
                     $scope.triggerMsg()
-                }, 20);
+                }, 0);
             },
-            reset: function() {
+            reset: function(element) {
                 $timeout(function() {
-                    $($(".smiley").children()[1]).html('')
-                }, 50);
+                    $($(element).children()[1]).html('')
+                }, 0);
             }
         };
         var usrname = sockserv.usrname;
@@ -60,7 +60,10 @@ chat.controller('chatboxController', ['$scope', '$timeout', 'socketService',
         }
         $scope.triggerMsg = function($event) {
             EmitMessage();
-            $scope.emojiMessage.reset();
+            if($event)
+            {
+                $scope.emojiMessage.reset($event.currentTarget.parentElement);
+            }
         }
         $scope.showUsers = function() {
             $scope.showMobileMenu = !$scope.showMobileMenu;

@@ -110,7 +110,7 @@ chat.directive('emojiForm', ['$timeout', '$http', '$interpolate','$compile', fun
 
         function resetTyping()
         {
-            $scope.emojiMessage.reset();
+            $scope.emojiMessage.reset(element);
         };
 
         function updateRichTextarea()
