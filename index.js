@@ -39,5 +39,5 @@ io.on('connection', function (socket) {
     });
 
 });
-
+console.log("Listening....");
 http.listen(process.env.PORT || 3000)
